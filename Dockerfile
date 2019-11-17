@@ -16,6 +16,9 @@ RUN useradd -m -G wheel --create-home \
 COPY ./vnc-config/ /vnc_defaults/
 COPY ./start.sh /entrypoint
 
+RUN mkdir -p /home/docker
+RUN mkdir -p /home/docker/.vnc
+
 RUN chmod +x /entrypoint
 RUN chmod +x /usr/local/bin/dumb-init
 RUN chown -R docker /home/docker
